@@ -45,3 +45,44 @@ export function getAllPosts(fields: string[] = []) {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts
 }
+
+// export function getFooterLinks() {
+//   const footerLinks = [
+//     {
+//       group: 'information',
+//       links: [
+//         {
+//           title: 'Home',
+//           url: '/'
+//         },
+//         {
+//           title: 'About',
+//           url: '/aboutme'
+//         },
+//         {
+//           title: 'Newsletter',
+//           url: ''
+//         },
+//       ]
+//     },
+//     {
+//       group: 'social',
+//       links: [
+//         {
+//           title: 'Twitter',
+//           url: 'https://twitter.com/'
+//         },
+//         {
+//           title: 'GitHub',
+//           url: 'https://github.com'
+//         },
+//         {
+//           title: 'YouTube',
+//           url: 'https://www.youtube.com'
+//         },
+//       ]
+//     }
+//   ]
+
+//   return footerLinks;
+// }
