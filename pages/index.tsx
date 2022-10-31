@@ -13,6 +13,7 @@ import PostFeatured from '../components/post-featured'
 import PostFeaturedList from '../components/post-featured-list'
 import { YoutubePlaylist } from '../interfaces/youtube'
 import YoutubePlaylistFeatured from '../components/youtube-playlist-featured'
+import ProjectList from '../components/project-list'
 
 
 type Props = {
@@ -62,6 +63,23 @@ export default function Index({ allPosts }: Props) {
     ]
   }
 
+  const projects = [
+    {
+      title: "Pyfolio",
+      description: "Pyfolio is a Opensource Portfolio Application for developers",
+      slug: "pyfolio",
+      image: "/assets/images/no-image.png",
+    },
+    {
+      title: "Pyfolio 2",
+      description: "Pyfolio is a Opensource Portfolio Application for developers",
+      slug: "pyfolio-2",
+      image: "/assets/images/no-image.png",
+    },
+  ]
+
+
+
   return (
     <>
       <Layout>
@@ -92,6 +110,8 @@ export default function Index({ allPosts }: Props) {
             <PostFeaturedList featuredPosts={featuredPosts}/>
 
             <YoutubePlaylistFeatured featuredPlaylist={featuredPlaylist}/>
+
+            <ProjectList projects={projects}/>
 
             <span className="h-16"></span>
             <div className="border border-blue-200 rounded p-6 my-4 w-full dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque">
