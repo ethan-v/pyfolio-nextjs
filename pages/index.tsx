@@ -7,7 +7,6 @@ import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 import Post from '../interfaces/post'
-import Image from 'next/image'
 import PostFeaturedPreview from '../components/post-featured'
 import PostFeatured from '../components/post-featured'
 import PostFeaturedList from '../components/post-featured-list'
@@ -17,6 +16,7 @@ import ProjectList from '../components/project-list'
 import { PostService } from '../lib/restapi/services/post.service'
 import { useEffect, useState } from 'react'
 import PostList from '../components/post/post-list'
+import CardQuickIntro from '../components/card-quick-intro/card-quick-intro'
 
 
 type Props = {
@@ -106,28 +106,14 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           <div className="flex flex-col justify-center items-start border-gray-200 dark:border-gray-700 mx-auto pb-16">
-            <div className="flex flex-col-reverse sm:flex-row items-start  my-8">
-              <div className="flex flex-col pr-8">
-                <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-3 text-black dark:text-white">Ethan V</h1>
-                <h2 className="text-gray-700 dark:text-gray-200 mb-4 font-bold">Fullstack Software Engineer</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-16">Helping developers build a faster Portfolio. Teaching about web development, backend engineering and python.</p>
-              </div>
-              <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
-                <Image
-                  src={logo}
-                  alt="Ethan V"
-                  sizes="30vw"
-                  width={176}
-                  height={176}
-                  className="rounded-full filter"
-                />
-              </div>
-            </div>
             
-            {/* <PostFeaturedList featuredPosts={featuredPosts}/> */}
+            <CardQuickIntro/>
+            
             <PostList posts={posts} label='Latest Posts'/>
 
-            <YoutubePlaylistFeatured featuredPlaylist={featuredPlaylist}/>
+            <hr className='w-full border-1 border-gray-200 dark:border-gray-800 my-8'/>
+
+            {/* <YoutubePlaylistFeatured featuredPlaylist={featuredPlaylist}/> */}
 
             <ProjectList projects={projects}/>
 

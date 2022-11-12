@@ -13,7 +13,7 @@ type Props = {
 const YoutubePlaylistFeatured = ({ featuredPlaylist }: Props) => {
     return (
         <>
-            <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">Featured Courses</h3>
+            <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-8 mt-8 text-black dark:text-white">Featured Courses</h3>
             <h4 className="text-3xl md:text-3xl tracking-tight mb-4 mt-6 text-black dark:text-white">{featuredPlaylist.title}</h4>
             <p className="text-gray-600 dark:text-gray-400 mb-4">{featuredPlaylist.description}</p>
             {featuredPlaylist.videos.map((video, index) => (
