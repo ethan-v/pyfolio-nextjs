@@ -5,3 +5,16 @@
 body {
     background-color: #f9fafb;
 }
+
+.text-brand {
+    color: #01a35c !important;
+}
+
+.max-w-screen-md {
+    max-width: 960px;
+}
+
+a:hover {
+    color: #01a35c !important;
+    text-decoration: none !important;
+}

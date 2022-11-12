@@ -14,6 +14,9 @@ import PostFeaturedList from '../components/post-featured-list'
 import { YoutubePlaylist } from '../interfaces/youtube'
 import YoutubePlaylistFeatured from '../components/youtube-playlist-featured'
 import ProjectList from '../components/project-list'
+import { PostService } from '../lib/restapi/services/post.service'
+import { useEffect, useState } from 'react'
+import PostList from '../components/post/post-list'
 
 
 type Props = {
@@ -21,8 +24,9 @@ type Props = {
 }
 
 export default function Index({ allPosts }: Props) {
-  const featuredPosts = allPosts.slice(0,3)
-  const morePosts = allPosts.slice(1)
+  // const featuredPosts = allPosts.slice(0,3)
+  // const morePosts = allPosts.slice(1)
+
   const title = `Next.js Portfolio Example with ${CMS_NAME}`
   const logo = 'https://avatars.githubusercontent.com/u/101924640';
   const featuredPlaylist: YoutubePlaylist = {
@@ -78,6 +82,20 @@ export default function Index({ allPosts }: Props) {
     },
   ]
 
+  const [posts, setPosts] = useState(null)
+  const [isLoading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true);
+    PostService.all()
+      .then((posts) => {
+        setPosts(posts)
+        setLoading(false)
+      })
+  }, [])
+
+  if (isLoading) return <p>Loading...</p>
+  if (!posts) return <p>No menu data</p>
 
 
   return (
@@ -88,11 +106,10 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           <div className="flex flex-col justify-center items-start border-gray-200 dark:border-gray-700 mx-auto pb-16">
-            <div className="flex flex-col-reverse sm:flex-row items-start">
+            <div className="flex flex-col-reverse sm:flex-row items-start  my-8">
               <div className="flex flex-col pr-8">
-                <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">Ethan V</h1>
-                <h2 className="text-gray-700 dark:text-gray-200 mb-4">Full-stack Engineer and creator of Pyfolio
-                </h2>
+                <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-3 text-black dark:text-white">Ethan V</h1>
+                <h2 className="text-gray-700 dark:text-gray-200 mb-4 font-bold">Fullstack Software Engineer</h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-16">Helping developers build a faster Portfolio. Teaching about web development, backend engineering and python.</p>
               </div>
               <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
@@ -107,7 +124,8 @@ export default function Index({ allPosts }: Props) {
               </div>
             </div>
             
-            <PostFeaturedList featuredPosts={featuredPosts}/>
+            {/* <PostFeaturedList featuredPosts={featuredPosts}/> */}
+            <PostList posts={posts} label='Latest Posts'/>
 
             <YoutubePlaylistFeatured featuredPlaylist={featuredPlaylist}/>
 
@@ -131,17 +149,10 @@ export default function Index({ allPosts }: Props) {
   )
 }
 
-export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-  ])
+// export const getStaticProps = async () => {
+//   const allPosts = PostService().all().then((posts) => posts);
 
-  return {
-    props: { allPosts },
-  }
-}
+//   return {
+//     props: { allPosts },
+//   }
+// }

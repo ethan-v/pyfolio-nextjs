@@ -9,10 +9,13 @@ type Props = {
 }
 
 const CoverImage = ({ title, src, slug }: Props) => {
+  src = src || '/assets/images/default-cover.jpg'
+  const fakeImage = !src ? 'Default cover image' : ''
   const image = (
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
+      title={fakeImage}
       className={cn('shadow-sm', {
         'hover:shadow-lg transition-shadow duration-200': slug,
       })}

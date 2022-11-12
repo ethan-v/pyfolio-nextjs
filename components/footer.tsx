@@ -69,7 +69,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="flex flex-col justify-center items-start mx-auto w-full mb-8">
+    <footer className="flex flex-col justify-center items-start mx-auto w-full my-8">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
       <h2 className="text-primary text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-8 mt-8">
           <Link href="/" className="hover:underline">

@@ -1,30 +1,38 @@
 import Image from 'next/image';
 import Link from 'next/link'
+import { Collection } from '../lib/helper';
 import darkModeIcon from '../public/assets/icon/moon-regular.svg'
 
-const Header = () => {
+const Header = ({ data }) => {
+  console.log("Header: ", data)
+
+  // const menuItems = data.filter(item => {
+  //   return item['group'] == 'top_menu'
+  // });;
+  // console.log("topMenu: ", menuItems)
+
   const menu = [
     {
       title: 'Home',
-      route: '/'
+      url: '/'
     },
     {
       title: 'Blog',
-      route: '/'
+      url: '/blog'
     },
     {
       title: 'Snippets',
-      route: '/'
+      url: '/snippets'
     },
     {
-      title: 'About',
-      route: '/'
+      title: 'About me',
+      url: '/about-me'
     },
   ]
   return (
     <div className="container mx-auto">
-      <nav className="flex items-center justify-between w-full relative border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16 text-gray-900 bg-gray-50 dark:bg-gray-800 bg-opacity-60 dark:text-gray-100">
-        <h2 className=" text-primary text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-8 mt-8">
+      <nav className="flex items-center justify-between w-full relative border-gray-200 dark:border-gray-700 mx-auto pt-6 pb-6 sm:pb-6 text-gray-900 bg-gray-50 dark:bg-gray-800 bg-opacity-60 dark:text-gray-100">
+        <h2 className=" text-primary text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-6 mt-6">
           <Link href="/" className="hover:underline">
             Portfolio
           </Link>
@@ -45,13 +53,13 @@ const Header = () => {
             />
           </button> */}
           {menu.map((item, index) => (
-            <a key={index} href={item.route} className="font-normal text-gray-600 dark:text-gray-400 hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
+            <Link key={index} href={item.url} className="font-normal text-gray-600 dark:text-gray-400 hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
               <span className="capsize">{item.title}</span>
-            </a>
+            </Link>
           ))}
           
         </div>
-        <button
+        {/* <button
           aria-label="Toggle Dark Mode"
           type="button"
           className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all"
@@ -63,7 +71,7 @@ const Header = () => {
               width={150}
               height={150}
             />
-        </button>
+        </button> */}
       </nav>
     </div>
   );
