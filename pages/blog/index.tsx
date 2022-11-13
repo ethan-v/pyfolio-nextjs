@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Container from "../../components/container";
-import Layout from "../../components/layout";
+import Container from "../../components/layout/container";
+import Layout from "../../components/layout/layout";
 import { PostService } from "../../lib/restapi/services/post.service";
 import Link from "next/link";
 import { parseViewDate } from "../../lib/helper";

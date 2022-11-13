@@ -1,4 +1,4 @@
-import Container from './container'
+import Container from './layout/container'
 import cn from 'classnames'
 
 type Props = {

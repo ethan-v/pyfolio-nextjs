@@ -1,16 +1,16 @@
-import PostFeatured from "./post-featured"
-import Post from '../interfaces/post'
-import { YoutubePlaylist } from "../interfaces/youtube"
+import PostFeatured from "../post-featured"
+import Post from '../../interfaces/post'
+import { YoutubePlaylist } from "../../interfaces/youtube"
 import Link from "next/link"
 import Image from "next/image"
 import circlePlayIcon from '../public/assets/icon/circle-play-regular.svg'
-import { digitToDoubleCharacter } from "../lib/helper"
+import { digitToDoubleCharacter } from "../../lib/helper"
 
 type Props = {
     featuredPlaylist: YoutubePlaylist
 }
 
-const YoutubePlaylistFeatured = ({ featuredPlaylist }: Props) => {
+const CourseDetailPreview = ({ featuredPlaylist }: Props) => {
     return (
         <>
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-8 mt-8 text-black dark:text-white">Featured Courses</h3>
@@ -46,4 +46,4 @@ const YoutubePlaylistFeatured = ({ featuredPlaylist }: Props) => {
     )
 }
 
-export default YoutubePlaylistFeatured
+export default CourseDetailPreview

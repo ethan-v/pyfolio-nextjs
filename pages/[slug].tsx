@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import Container from "../components/container"
-import Layout from "../components/layout"
+import Container from "../components/layout/container"
+import Layout from "../components/layout/layout"
 import { ROUTES } from "../lib/constants"
 
 const DynamicPage = () => {
@@ -20,7 +20,7 @@ const DynamicPage = () => {
             <Container>
                 <h2 className="text-4xl text-center">{title}</h2>
                 <div>
-                    page content
+                    The page content
                 </div>
             </Container>
         </Layout>

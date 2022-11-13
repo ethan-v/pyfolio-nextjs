@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type Author from '../interfaces/author'
+import type Author from '../../interfaces/author'
 
 type Props = {
   title: string
@@ -10,7 +10,7 @@ type Props = {
   slug: string
 }
 
-const PostFeatured = ({
+const CourseItemPreview = ({
   title,
   coverImage,
   date,
@@ -40,4 +40,4 @@ const PostFeatured = ({
   );
 }
 
-export default PostFeatured
+export default CourseItemPreview
