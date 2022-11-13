@@ -1,24 +1,9 @@
 import Link from 'next/link'
+import { ROUTES } from '../lib/constants';
 
 const Header = ({ data }) => {
-  const menu = [
-    {
-      title: 'Home',
-      url: '/'
-    },
-    {
-      title: 'Blog',
-      url: '/blog'
-    },
-    {
-      title: 'Snippets',
-      url: '/snippets'
-    },
-    {
-      title: 'About me',
-      url: '/about-me'
-    },
-  ]
+  const menu = ROUTES
+
   return (
     <div className="container mx-auto">
       <nav className="flex items-center justify-between w-full relative border-gray-200 dark:border-gray-700 mx-auto pt-6 pb-6 sm:pb-6 text-gray-900 bg-gray-50 dark:bg-gray-800 bg-opacity-60 dark:text-gray-100">

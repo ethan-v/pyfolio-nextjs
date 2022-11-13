@@ -4,6 +4,7 @@ import Alert from './alert'
 import Footer from './footer'
 import Header from './header'
 import Meta from './meta'
+import NewsletterForm from './newsletter/newsletter-form'
 
 type Props = {
   preview?: boolean
@@ -41,6 +42,7 @@ const Layout = ({ preview, children }: Props) => {
         {/* <Alert preview={preview} /> */}
         <Header data={menus}/>
         <main>{children}</main>
+        <NewsletterForm className='my-16'/>
         <Footer />
       </div>
     </>

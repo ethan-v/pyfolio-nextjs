@@ -33,11 +33,10 @@ export default function Index() {
           <title>{title}</title>
         </Head>
         <Container>
-          <div className="flex flex-col justify-center items-start border-gray-200 dark:border-gray-700 mx-auto pb-16">
+          <div className="flex flex-col justify-center items-start border-gray-200 dark:border-gray-700 mx-auto pb-8">
             <CardQuickIntro/>
             <PostList posts={posts} label='Latest Posts'/>
             {/* TODO: v2.x: Display list of Projects */}
-            <NewsletterForm className='mt-16'/>
           </div>
         </Container>
       </Layout>
