@@ -18,13 +18,10 @@ export default function Index() {
     setLoading(true);
     PostService.all()
       .then((posts) => {
-        setPosts(posts)
         setLoading(false)
+        setPosts(posts)
       })
   }, [])
-
-  if (isLoading) return <p>Loading...</p>
-  if (!posts) return <p>No menu data</p>
 
   return (
     <>
@@ -35,7 +32,8 @@ export default function Index() {
         <Container>
           <div className="flex flex-col justify-center items-start border-gray-200 dark:border-gray-700 mx-auto pb-8">
             <CardQuickIntro/>
-            <PostList posts={posts} label='Latest Posts'/>
+            {isLoading && <p>Loading Posts...</p>}
+            {posts ? <PostList posts={posts} label='Latest Posts'/> : <p>No posts data</p>}
             {/* TODO: v2.x: Display list of Projects */}
           </div>
         </Container>

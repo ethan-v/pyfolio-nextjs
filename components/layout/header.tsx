@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { ROUTES } from '../../lib/constants';
+import { DEFAULT_ROUTES } from '../../lib/constants';
 
 const Header = ({ data }) => {
-  const menu = ROUTES
+  const menu = DEFAULT_ROUTES
 
   return (
     <div className="container mx-auto">

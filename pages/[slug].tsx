@@ -2,14 +2,14 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import Container from "../components/layout/container"
 import Layout from "../components/layout/layout"
-import { ROUTES } from "../lib/constants"
+import { DEFAULT_ROUTES } from "../lib/constants"
 
 const DynamicPage = () => {
 
     const router = useRouter()
     const query = router.query
     const slug = query?.slug
-    const activeRoute = ROUTES.find((item) => item.url.replace('/', '') == slug)
+    const activeRoute = DEFAULT_ROUTES.find((item) => item.url.replace('/', '') == slug)
     const title = activeRoute?.title || 'Page'
 
     return (
