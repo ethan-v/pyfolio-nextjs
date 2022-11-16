@@ -6,7 +6,7 @@ export class SettingService {
 
     static async all(limit: number = 10): Promise<Setting[]> {
         return new Promise((resolve, reject) => {
-            HttpBaseService.get<any>('settings').then((response) => {
+            HttpBaseService.get<any>(`settings?limit=${limit}`).then((response) => {
                 let items = response.data?.items || [];
                     if (items.length) {
                     const data = items.map(element => {

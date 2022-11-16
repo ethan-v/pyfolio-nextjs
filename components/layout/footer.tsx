@@ -66,18 +66,18 @@ const Footer = ({ data }) => {
       group: 'Projects',
       links: [
         {
-          title: 'Project 1',
-          url: 'https://github.com',
+          title: data?.project_1?.name || '',
+          url:  data?.project_1?.value || '',
           target: '_blank',
         },
         {
-          title: 'Project 3',
-          url: 'https://github.com',
+          title: data?.project_2?.name || '',
+          url:  data?.project_2?.value || '',
           target: '_blank',
         },
         {
-          title: 'Project 2',
-          url: 'https://github.com',
+          title: data?.project_3?.title || '',
+          url:  data?.project_3?.value || '',
           target: '_blank',
         },
       ]
