@@ -19,24 +19,24 @@ const PostPreview = ({ post }) => {
             </Link>
           </h3>
           <div className="flex flex-wrap">
-            <a
+            <Link
               className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
               href="/tags/open-source"
             >
               open-source
-            </a>
-            <a
+            </Link>
+            <Link
               className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
               href="/tags/musings"
             >
               python
-            </a>
-            <a
+            </Link>
+            <Link
               className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
               href="/tags/notes"
             >
               notes
-            </a>
+            </Link>
           </div>
         </div>
         <div className="prose text-gray-500 max-w-none dark:text-gray-400">{post.content}</div>

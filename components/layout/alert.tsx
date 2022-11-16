@@ -1,5 +1,6 @@
 import Container from './container'
 import cn from 'classnames'
+import Link from 'next/link'
 
 type Props = {
   preview?: boolean
@@ -18,23 +19,23 @@ const Alert = ({ preview }: Props) => {
           {preview ? (
             <>
               This page is a preview.{' '}
-              <a
+              <Link
                 href="/api/exit-preview"
                 className="underline hover:text-teal-300 duration-200 transition-colors"
               >
                 Click here
-              </a>{' '}
+              </Link>{' '}
               to exit preview mode.
             </>
           ) : (
             <>
               The source code for this portfolio is{' '}
-              <a
+              <Link
                 href={`https://github.com/ethanvu-dev/pyfolio-nextjs`}
                 className="underline hover:text-blue-600 duration-200 transition-colors"
               >
                 available on GitHub
-              </a>
+              </Link>
               .
             </>
           )}

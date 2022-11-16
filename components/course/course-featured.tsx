@@ -1,5 +1,3 @@
-import PostFeatured from "../post-featured"
-import Post from '../../interfaces/post'
 import { YoutubePlaylist } from "../../interfaces/youtube"
 import Link from "next/link"
 import Image from "next/image"

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type Author from '../interfaces/author'
+import type Author from '../../interfaces/author'
 
 type Props = {
   title: string

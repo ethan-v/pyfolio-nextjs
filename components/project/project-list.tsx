@@ -1,6 +1,6 @@
 import ProjectItem from "./project-item"
-import Project from '../interfaces/project'
-import MoreButton from "./more-button/more-button"
+import Project from '../../interfaces/project'
+import MoreButton from "../more-button/more-button"
 
 type Props = {
     projects: Project[]

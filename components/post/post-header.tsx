@@ -1,8 +1,8 @@
-import Avatar from './avatar'
-import DateFormatter from './date-formatter'
-import CoverImage from './custom-field/cover-image'
+import Avatar from '../custom-field/avatar'
+import DateFormatter from '../custom-field/date-formatter'
+import CoverImage from '../custom-field/cover-image'
 import PostTitle from './post-title'
-import type Author from '../interfaces/author'
+import type Author from '../../interfaces/author'
 
 type Props = {
   title: string

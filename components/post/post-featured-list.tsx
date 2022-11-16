@@ -1,5 +1,5 @@
 import PostFeatured from "./post-featured"
-import Post from '../interfaces/post'
+import Post from '../../interfaces/post'
 
 type Props = {
     featuredPosts: Post[]
