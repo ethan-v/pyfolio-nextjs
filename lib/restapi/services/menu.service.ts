@@ -8,7 +8,7 @@ export class MenuService {
         return new Promise((resolve, reject) => {
             HttpBaseService.get<any>('menus').then((response) => {
                 // console.log("Promise: ",response.data.items);
-                let items = response.data?.items || [];
+                let items = response?.data?.items || [];
                 const data = items.map(element => {
                     return new Menu(element);
                 });
