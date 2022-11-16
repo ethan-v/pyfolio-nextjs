@@ -1,8 +1,14 @@
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link'
+import iconYoutube from '../../public/assets/icon/youtube-48.png'
+import iconTwitter from '../../public/assets/icon/twitter-48.png'
+import iconGithub from '../../public/assets/icon/github-48.png'
 
 type FooterLink = {
   title: string;
   url: string;
+  target: string;
+  icon?: StaticImageData;
 }
 
 type FooterLinkGroup = {
@@ -10,7 +16,7 @@ type FooterLinkGroup = {
   links: Array<FooterLink>;
 }
 
-const Footer = () => {
+const Footer = ({ data }) => {
 
   const footerLinks: Array<FooterLinkGroup> = [
     {
@@ -18,15 +24,18 @@ const Footer = () => {
       links: [
         {
           title: 'Home',
-          url: '/'
+          url: '/',
+          target: '',
         },
         {
-          title: 'About',
-          url: '/about'
+          title: 'About me',
+          url: '/about-me',
+          target: '',
         },
         {
           title: 'Newsletter',
-          url: '/newsletter'
+          url: '#newsletter',
+          target: '',
         },
       ]
     },
@@ -35,15 +44,21 @@ const Footer = () => {
       links: [
         {
           title: 'Twitter',
-          url: 'https://twitter.com/'
+          url: 'https://twitter.com/',
+          target: '_blank',
+          icon: iconTwitter
         },
         {
           title: 'GitHub',
-          url: 'https://github.com'
+          url: data?.github_url?.value || 'https://github.com',
+          target: '_blank',
+          icon: iconGithub,
         },
         {
           title: 'YouTube',
-          url: 'https://www.youtube.com'
+          url: data?.youtube_url?.value || 'https://www.youtube.com',
+          target: '_blank',
+          icon: iconYoutube
         },
       ]
     },
@@ -52,19 +67,24 @@ const Footer = () => {
       links: [
         {
           title: 'Project 1',
-          url: 'https://github.com'
+          url: 'https://github.com',
+          target: '_blank',
         },
         {
           title: 'Project 3',
-          url: 'https://github.com'
+          url: 'https://github.com',
+          target: '_blank',
         },
         {
           title: 'Project 2',
-          url: 'https://github.com'
+          url: 'https://github.com',
+          target: '_blank',
         },
       ]
     }
   ];
+
+  console.log("Footer Links: ", footerLinks)
 
   return (
     <footer className="flex flex-col justify-center items-start mx-auto w-full my-8">
@@ -79,7 +99,10 @@ const Footer = () => {
         {footerLinks.map((linkGroup, indexGroup) => (
           <div className="flex flex-col space-y-4" key={indexGroup}>
             {linkGroup.links.map((link, index) => (
-              <Link key={index} href={link.url}>{link.title}</Link>
+              <Link key={index} href={link.url} target={link.target} className="flex flex-row leading-8">
+                {link.icon && <Image className='mr-3' alt={link.title} src={link.icon} width={30} height={30}/>}
+                <span className='leading-8'>{link.title}</span>
+              </Link>
             ))}
           </div>)
         )}

@@ -6,6 +6,7 @@ import Meta from './meta'
 import NewsletterForm from '../newsletter/newsletter-form'
 import { DEFAULT_ROUTES } from '../../lib/constants'
 import { Menu } from '../../lib/restapi/models/menu.model'
+import { SettingService } from '../../lib/restapi/services/setting.service'
 
 type Props = {
   preview?: boolean
@@ -20,17 +21,26 @@ const Layout = ({ preview, children }: Props) => {
     return new Menu(item);
   })
 
-  useEffect(() => {
-    setLoading(true);
-    MenuService.all()
-      .then((menus) => {
-        setMenus(defaultMenu.concat(menus))
-        setLoading(false)
+  const [settings, setSettings] = useState(null)
+  let footerData = useState(null)
+
+  const getFooterData = () => {
+    let map = {}
+    if(settings) {
+      settings.map((item) => {
+        map[item.key] = item;
       })
+    }
+    console.log("getFooterData: ", map)
+    return map;
+  }
+
+  useEffect(() => {
+    SettingService.all(999).then((settings) => {
+      setSettings(settings)
+    })
     
-    // setMenus(DEFAULT_ROUTES)
-    setLoading(false)
-  }, [defaultMenu])
+  }, [])
 
   if (isLoading) return <p>Loading...</p>
   if (!menus) return <p>No menu data</p>
@@ -43,7 +53,7 @@ const Layout = ({ preview, children }: Props) => {
         <Header data={menus}/>
         <main>{children}</main>
         <NewsletterForm className='my-16'/>
-        <Footer />
+        <Footer data={getFooterData()} />
       </div>
     </>
   )

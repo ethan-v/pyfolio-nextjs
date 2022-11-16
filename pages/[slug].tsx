@@ -40,7 +40,7 @@ const DynamicPage = () => {
             <Container>
                 <h2 className="text-4xl text-center">{page?.title}</h2>
                 {page 
-                    ? <div dangerouslySetInnerHTML={{ __html: page.content }}/> 
+                    ? <div className="py-8" dangerouslySetInnerHTML={{ __html: page.content }}/> 
                     : <div className="mx-auto text-center my-16">
                         <Image 
                             alt="" 
