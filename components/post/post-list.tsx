@@ -12,7 +12,7 @@ const PostList = ({ posts, label = 'New Posts' }: Props) => {
     return (
         <>
             <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-8 text-black dark:text-white">{label}</h3>
-            <ul>
+            <ul className="w-full">
             {posts.map((post, index) => (
                 <li key={index} className="py-4">
                 <PostPreview key={index} post={post} />

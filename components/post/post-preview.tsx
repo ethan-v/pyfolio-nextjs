@@ -3,6 +3,7 @@ import { parseViewDate } from '../../lib/helper';
 import styles from './post-preview.module.scss';
 
 const PostPreview = ({ post }) => {
+  console.log("PostPreview: ", post)
   return (
     <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
       <dl>
@@ -39,7 +40,7 @@ const PostPreview = ({ post }) => {
             </Link>
           </div>
         </div>
-        <div className="prose text-gray-500 max-w-none dark:text-gray-400">{post.content}</div>
+        <div className="prose text-gray-500 max-w-none dark:text-gray-400">{post.excerpt}</div>
       </div>
     </article>
   );

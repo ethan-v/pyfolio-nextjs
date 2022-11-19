@@ -5,6 +5,7 @@ export class Post extends BaseModel {
     public id: number = 0;
     public title: string = '';
     public slug: string = '';
+    public excerpt: string = '';
     public content: string = '';
     public image: string = '';
     public is_active: boolean = false;
