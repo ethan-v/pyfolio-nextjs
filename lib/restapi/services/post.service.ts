@@ -1,20 +1,23 @@
 import HttpBaseService from '../http-base.service'
 import { Post } from '../models/post.model';
+import { ApiResponse } from '../models/response.model';
+import { SearchReq } from '../models/search-request.model';
 
 
 export class PostService {
 
-    static async all(): Promise<Post[]> {
+    static async all(searchReq: SearchReq): Promise<any> {
         return new Promise((resolve, reject) => {
-            HttpBaseService.get<any>('posts').then((response) => {
-                let items = response.data?.items || [];
-                    if (items.length) {
-                    const data = items.map(element => {
+            const url = `/posts?${searchReq.toQuery()}`
+            HttpBaseService.get<any>(url).then((response) => {
+                let data = response.data
+                let items = data?.items || [];
+                if (items.length) {
+                    data.items = items.map(element => {
                         return new Post(element);
                     });
-                    resolve(data);
                 }
-                resolve(null);
+                resolve(data);
             }, (err) => {
                 reject(err);
             })

@@ -23,3 +23,5 @@ export function parseViewDate(datetime: string) {
     const d = new Date(datetime); //(or .toString()
     return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
 }
+
+export const range = (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i);

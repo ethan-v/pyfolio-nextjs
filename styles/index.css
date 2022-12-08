@@ -17,4 +17,17 @@ body {
 a:hover {
     color: #01a35c !important;
     text-decoration: none !important;
+    cursor: pointer;
+}
+
+.pagination a.active, .pagination a:hover {
+    background-color: #01a35c !important;
+    border-color: #01a35c !important;
+    color: white !important;
+}
+
+.pagination a.disabled {
+    background-color: #fff !important;
+    color: inherit !important;
+    border-color: #ccc !important;
 }

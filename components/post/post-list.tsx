@@ -15,7 +15,7 @@ const PostList = ({ posts, label = 'New Posts' }: Props) => {
             <ul className="w-full">
             {posts.map((post, index) => (
                 <li key={index} className="py-4">
-                <PostPreview key={index} post={post} />
+                    <PostPreview key={index} post={post} />
                 </li>
             ))}
             </ul>

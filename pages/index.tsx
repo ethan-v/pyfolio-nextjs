@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import PostList from '../components/post/post-list'
 import CardQuickIntro from '../components/card-quick-intro/card-quick-intro'
 import NewsletterForm from '../components/newsletter/newsletter-form'
+import { SearchReq } from '../lib/restapi/models/search-request.model'
 
 
 export default function Index() {
@@ -16,11 +17,11 @@ export default function Index() {
 
   useEffect(() => {
     setLoading(true);
-    PostService.all()
-      .then((posts) => {
-        setLoading(false)
-        setPosts(posts)
-      })
+    const searchReq = new SearchReq({page: 1})
+    PostService.all(searchReq).then((data) => {
+      setLoading(false)
+      setPosts(data.items)
+    })
   }, [])
 
   return (
